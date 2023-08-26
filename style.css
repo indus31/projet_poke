@@ -1,0 +1,24 @@
+/*GAME BOY*/
+#gameBoy{
+    width:1600px;
+    
+}
+#ecran{
+    position:absolute;
+    border:solid 2px black;
+    width:800px;
+    height:750px;
+    top:382px;
+    left:410px;
+    /* background-image: url("/img/or.gif"); */
+    background-repeat: no-repeat;
+}
+#gif{
+    position:absolute;
+    border:solid 2px black;
+    width:800px;
+    height:750px;
+    top:382px;
+    left:410px;
+   
+}
