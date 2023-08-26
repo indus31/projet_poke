@@ -214,6 +214,7 @@ defPos(ecranBlanc,384,687);
 masquer(ecranBlanc);
 
 
+// masquer(selection);
 
 
          /*style buttonStart*/
@@ -561,11 +562,41 @@ buttonAjouter.addEventListener("click",async function(){
         player.stat.push(stat3);
         player.movePool.push(movePool3);
         masquer(buttonAjouter);
+        afficher(buttonStartCombat);
+        // afficher(buttonEnlever);
     }
 
     }
   
 );
+// let buttonEnlever = document.createElement("button");
+// afficherApp(buttonEnlever);
+// console.log(buttonEnlever);
+// buttonEnlever.innerHTML= "enlever";
+// buttonEnlever.style.borderRadius = 100+"px";
+// buttonEnlever.style.fontSize = 24+"px";
+// defPos(buttonEnlever,700,1965);
+// buttonEnlever.addEventListener("click",function(){
+//     if(countPokemon == 3){
+//         countPokemon -=1;
+//         compteur.innerHTML = countPokemon;
+
+//         afficher(buttonAjouter);
+//         masquer(imgEquipe3); 
+//     }else if(countPokemon == 2){
+//         countPokemon -= 1;
+//         compteur.innerHTML = countPokemon;
+//         masquer(imgEquipe2);
+//     }else if(countPokemon == 1){
+//         countPokemon -= 1;
+//         compteur.innerHTML = countPokemon;
+//         masquer(imgEquipe1);
+//     }
+    
+    
+    
+// })
+
 console.log(pokemon1,pokemon2,pokemon3);
 
 console.log(stat1,stat2,stat3);
@@ -627,9 +658,11 @@ buttonStartCombat.style.fontSize = 24+"px";
 defPos(buttonStartCombat,660,1950);
 
 masquer(buttonStartCombat);
+// masquer(buttonEnlever);
 //affichage bouton startCombat
-if (player.equipe.length == 3){
+if (countPokemon == 3){
     afficher(buttonStartCombat);
+    afficher(buttonEnlever);
 }
 console.log(player);
 
@@ -931,10 +964,15 @@ function calculCombatAtt1(pla,adv,i){
     let typeCible1 = adv.equipe[i].type1;
     let typeCible2 = adv.equipe[i].type2;
     let totalDegat = 0;
+    console.log(`total degat = ${totalDegat}`);
     if(pla.movePool.att1DmgClass =="special"){
+        console.log(pla.stat[i].attaque);
         totalDegat += (pla.stat[i].attaque + pla.movePool[i].att1Degat ) - (adv.stat[i].defense);
+        console.log(totalDegat);
+        alert(`attaque spéciale de ${totalDegat} dégats`);
     }else if(pla.movePool.att1DmgClass =="physical"){
         totalDegat += (pla.stat[i].attaque + pla.movePool[i].att1Degat ) - (adv.stat[i].defenseSpe);
+        alert(`attaque physique de ${totalDegat} dégats`);
     }
     //type feu
     if(typeAttaque == feu && typeCible1 == plante|| typeCible2 == plante){
@@ -1089,16 +1127,16 @@ buttonPadAttack1.addEventListener("click",function(){
 
 })
 
-
-
-
-
-
-
+masquerSelection();
 masquerPadAttaque();
 masquerPad1();
 affichagePad1();
 masquerEcranCombat();
+
+
+
+
+
 
 
 
@@ -1152,8 +1190,7 @@ function afficherIntro(){
 };
 afficherIntro();
 // masquerSelection();
-masquerEcranCombat();
-afficherSelection();
+
 
 
 
@@ -1198,7 +1235,7 @@ function afficherSelection(){
     afficher(buttonPrecedent);
     afficher(buttonAjouter);
     afficher(ecranSelection);
-    afficher(buttonStartCombat);
+    // afficher(buttonStartCombat);
     afficher(imgEquipe1);
     afficher(imgEquipe2);
     afficher(imgEquipe3);
